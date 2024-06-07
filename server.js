@@ -65,6 +65,7 @@ app.post("/subscribe", (req, res) => {
       console.log(result);
     }
   });
+  res.send("OK");
 });
 
 app.get("/", (req, res) => {
