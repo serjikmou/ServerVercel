@@ -31,8 +31,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-const publicVapidKey = "your-public-vapid-key"; // REPLACE_WITH_YOUR_KEY
-const privateVapidKey = "your-private-vapid-key"; //REPLACE_WITH_YOUR_KEY
+const publicVapidKey =
+  "BE5rfDreS4EbBbkpJqF_QzKaeTeAX9WBB44VFL5v57vN_JdQbTKlGqyeT6dOVShNzu2bYW_TKD_jVuGKSJC4W-U"; // REPLACE_WITH_YOUR_KEY
+const privateVapidKey = "8stCVUUsK5cGPJw1zPHFePFGjvslnuqqKnoWT_d15tQ"; //REPLACE_WITH_YOUR_KEY
 
 app.post("/subscribe", (req, res) => {
   // Get pushSubscription object
@@ -40,7 +41,7 @@ app.post("/subscribe", (req, res) => {
   const settings = {
     web: {
       vapidDetails: {
-        subject: "mailto: <jeffeverhart383@gmail.com>", // REPLACE_WITH_YOUR_EMAIL
+        subject: "mailto: <serjikmousavi@gmail.com>", // REPLACE_WITH_YOUR_EMAIL
         publicKey: publicVapidKey,
         privateKey: privateVapidKey,
       },
@@ -69,6 +70,9 @@ app.post("/subscribe", (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
+app.post("/", (req, res) => {
+  res.send("sajjad");
+});
 app.get("/main.js", (req, res) => {
   res.sendFile(__dirname + "/main.js");
 });
@@ -79,3 +83,5 @@ app.get("/sw.js", (req, res) => {
 const port = 3000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
+
+module.exports = app;
